@@ -35,9 +35,9 @@ class MyPanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(Main.WIDTH, Main.HEIGHT));
         setBackground(Main.COLOR);
 
-        /*myButton = new MyButton("Start",
+        myButton = new MyButton("Start",
                 300, 300, 100, 50, 30,
-                Color.BLUE, Color.WHITE);*/
+                Color.BLUE, Color.WHITE);
 
         this.addMouseMotionListener(mouseAdapter);
         this.setFocusable(true);
@@ -53,7 +53,7 @@ class MyPanel extends JPanel implements ActionListener {
         drawImages.drawPlayer(g);
         drawImages.drawScore(g);
         arm.drawArm(g);
-        //myButton.drawButton(g);
+        myButton.drawButton(g);
 
         if(Main.trashList.size() >= 1) {
             for (Trash trash : Main.trashList) {
@@ -80,14 +80,16 @@ class MyPanel extends JPanel implements ActionListener {
             player.checkCollisions();
             player.checkInbounds();
 
+            Object actionSource = e.getSource();
+            System.out.println(actionSource);
+
             arm.moveArm(mouseAdapter);
 
             for (int i=0;i<Main.trashList.size();i++) {
                 Main.trashList.get(i).checkIfInbound();
+                Main.trashList.get(i).moveTrash();
             }
-            for (Trash trash : Main.trashList) {
-                trash.moveTrash();
-            }
+
 
             for (int i=0;i<Main.fishList.size();i++) {
                 Main.fishList.get(i).checkIfInbound();

@@ -3,7 +3,7 @@ package io.github.martinecko30.UI;
 import javax.swing.*;
 import java.awt.*;
 
-public class MyButton {
+public class MyButton extends JButton {
 
     private String text;
     private int x, y, width, height, textSize;

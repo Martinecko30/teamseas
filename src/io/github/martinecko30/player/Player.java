@@ -21,7 +21,7 @@ public class Player extends BoundingBox {
 
     public Player() {
         super(positionX, positionY, width, height);
-        arm = new Arm(positionX/2+20, positionY/2, 60, 30, this);
+        arm = new Arm(positionX, positionY, 60, 30, this);
     }
 
     public void move(int keyCode) {

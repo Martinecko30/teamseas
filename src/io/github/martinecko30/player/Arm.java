@@ -5,6 +5,7 @@ import io.github.martinecko30.main.Main;
 import io.github.martinecko30.resources.ImageHandler;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Arm extends BoundingBox {
     public static int x, y, width, height;
@@ -44,12 +45,9 @@ public class Arm extends BoundingBox {
 
 
     public void drawArm(Graphics g) {
-        /*Graphics2D g2 = (Graphics2D) g;
-        int cx = width / 2;
-        int cy = height / 2;
-        g2.translate(-cx, -cy);
-        g2.rotate(rotationDeg);*/
-        g.drawImage(new ImageHandler("scuba_diver_arm.png", width, height+10).build(), Arm.x, Arm.y, null);
+        ImageHandler imageHandler = new ImageHandler();
+        BufferedImage bufferedImage = imageHandler.getBufferedImage("scuba_diver_arm.png");
+        imageHandler.rotateImageByDegrees(bufferedImage, 20);
 
         g.setColor(Color.red);
         if(Main.debugMode) {

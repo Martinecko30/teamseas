@@ -1,1 +1,6 @@
-"# teamseas" 
+"#TEAMSEAS" 
+"Game by Martinecko30"
+"Credit:"
+"Art: Martinecko30"
+"Code: Martinecko30"
+"Everything made in Java"
